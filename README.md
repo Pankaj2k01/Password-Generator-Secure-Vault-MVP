@@ -85,9 +85,6 @@ npm run dev
 - 📱 **90+** Lighthouse score
 - 🔒 **Zero** plaintext storage
 
-## 🤝 **Contributing**
-
-Contributions welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
 
 ## 📄 **License**
 
