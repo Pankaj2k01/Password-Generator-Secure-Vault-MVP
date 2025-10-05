@@ -63,18 +63,6 @@ npm run dev
 
 > **🛡️ Zero-Knowledge Promise**: Your master password never leaves your device. All encryption happens client-side using industry-standard AES-256 encryption.
 
-## 🚀 **Quick Deploy**
-
-### Deploy to Vercel (1-click)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Pankaj2k01/Password-Generator-Secure-Vault-MVP-)
-
-### Environment Variables
-```env
-MONGODB_URI=your_mongodb_connection_string
-NEXTAUTH_SECRET=your_secure_secret_key
-JWT_SECRET=your_jwt_secret_key
-```
-
 ## 📱 **How It Works**
 
 1. **🔐 Create Account** - Secure registration with email verification
