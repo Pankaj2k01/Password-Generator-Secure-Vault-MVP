@@ -31,8 +31,8 @@
 
 ```bash
 # Clone and run locally
-git clone https://github.com/yourusername/password-vault.git
-cd password-vault
+git clone https://github.com/Pankaj2k01/Password-Generator-Secure-Vault-MVP-.git
+cd Password-Generator-Secure-Vault-MVP-
 npm install
 npm run dev
 ```
@@ -79,7 +79,7 @@ npm run dev
 ## 🚀 **Quick Deploy**
 
 ### Deploy to Vercel (1-click)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/password-vault)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Pankaj2k01/Password-Generator-Secure-Vault-MVP-)
 
 ### Environment Variables
 ```env
