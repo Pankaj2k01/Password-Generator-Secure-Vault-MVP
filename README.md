@@ -31,13 +31,11 @@
 
 ```bash
 # Clone and run locally
-git clone https://github.com/Pankaj2k01/Password-Generator-Secure-Vault-MVP-.git
-cd Password-Generator-Secure-Vault-MVP-
+git clone https://github.com/Pankaj2k01/Password-Generator-Secure-Vault-MVP.git
+cd Password-Generator-Secure-Vault-MVP
 npm install
 npm run dev
 ```
-
-**🌐 [View Live Demo →](https://your-deployed-app.vercel.app)**
 
 ## 🛠️ **Built With**
 
@@ -47,17 +45,6 @@ npm run dev
 - **Security**: crypto-js (AES-256 + PBKDF2)
 - **Auth**: JWT + bcrypt hashing
 - **Deployment**: Vercel ready
-
-## 📸 **Screenshots**
-
-### Password Generator
-![Password Generator](https://via.placeholder.com/800x400/1f2937/ffffff?text=Password+Generator)
-
-### Vault Dashboard
-![Vault Dashboard](https://via.placeholder.com/800x400/1f2937/ffffff?text=Vault+Dashboard)
-
-### Mobile Responsive
-![Mobile View](https://via.placeholder.com/400x600/1f2937/ffffff?text=Mobile+View)
 
 ## 🔒 **Security Architecture**
 
@@ -75,18 +62,6 @@ npm run dev
 ```
 
 > **🛡️ Zero-Knowledge Promise**: Your master password never leaves your device. All encryption happens client-side using industry-standard AES-256 encryption.
-
-## 🚀 **Quick Deploy**
-
-### Deploy to Vercel (1-click)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Pankaj2k01/Password-Generator-Secure-Vault-MVP-)
-
-### Environment Variables
-```env
-MONGODB_URI=your_mongodb_connection_string
-NEXTAUTH_SECRET=your_secure_secret_key
-JWT_SECRET=your_jwt_secret_key
-```
 
 ## 📱 **How It Works**
 
@@ -110,15 +85,6 @@ JWT_SECRET=your_jwt_secret_key
 - 📱 **90+** Lighthouse score
 - 🔒 **Zero** plaintext storage
 
-## 🤝 **Contributing**
-
-Contributions are welcome! Feel free to:
-- 🐛 Report bugs by opening an issue
-- 💡 Suggest new features or improvements
-- 🔧 Submit pull requests with fixes or enhancements
-- 📖 Improve documentation
-
-Please ensure your code follows the existing style and includes appropriate tests.
 
 ## 📄 **License**
 
