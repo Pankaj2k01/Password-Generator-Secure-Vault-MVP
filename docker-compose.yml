@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: password-vault-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=password-vault
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - password-vault-network
+
+  app:
+    build: .
+    container_name: password-vault-app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/password-vault
+      - NEXTAUTH_SECRET=your-secret-key-change-this-in-production
+      - NEXTAUTH_URL=http://localhost:3000
+      - JWT_SECRET=your-jwt-secret-change-this-in-production
+      - ENCRYPTION_KEY=your-32-character-encryption-key-change-this
+    depends_on:
+      - mongodb
+    networks:
+      - password-vault-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  password-vault-network:
+    driver: bridge
