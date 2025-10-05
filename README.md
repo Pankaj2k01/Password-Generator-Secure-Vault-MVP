@@ -37,8 +37,6 @@ npm install
 npm run dev
 ```
 
-**🌐 [View Live Demo →](https://your-deployed-app.vercel.app)**
-
 ## 🛠️ **Built With**
 
 - **Frontend**: Next.js 15 + TypeScript + Tailwind CSS
@@ -47,17 +45,6 @@ npm run dev
 - **Security**: crypto-js (AES-256 + PBKDF2)
 - **Auth**: JWT + bcrypt hashing
 - **Deployment**: Vercel ready
-
-## 📸 **Screenshots**
-
-### Password Generator
-![Password Generator](https://via.placeholder.com/800x400/1f2937/ffffff?text=Password+Generator)
-
-### Vault Dashboard
-![Vault Dashboard](https://via.placeholder.com/800x400/1f2937/ffffff?text=Vault+Dashboard)
-
-### Mobile Responsive
-![Mobile View](https://via.placeholder.com/400x600/1f2937/ffffff?text=Mobile+View)
 
 ## 🔒 **Security Architecture**
 
