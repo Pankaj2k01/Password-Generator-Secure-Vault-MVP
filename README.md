@@ -112,7 +112,13 @@ JWT_SECRET=your_jwt_secret_key
 
 ## 🤝 **Contributing**
 
-Contributions welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
+Contributions are welcome! Feel free to:
+- 🐛 Report bugs by opening an issue
+- 💡 Suggest new features or improvements
+- 🔧 Submit pull requests with fixes or enhancements
+- 📖 Improve documentation
+
+Please ensure your code follows the existing style and includes appropriate tests.
 
 ## 📄 **License**
 
