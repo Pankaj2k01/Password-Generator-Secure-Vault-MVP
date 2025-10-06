@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useAuth } from '@/lib/useAuth';
-import { Eye, EyeOff, LogIn, UserPlus } from 'lucide-react';
+import { Eye, EyeOff, LogIn, UserPlus, Shield } from 'lucide-react';
 
 interface AuthFormProps {
   mode: 'login' | 'register';
@@ -38,99 +38,124 @@ export default function AuthForm({ mode, onToggleMode }: AuthFormProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-            {mode === 'login' ? 'Sign in to your vault' : 'Create your vault'}
+        {/* Logo and Header */}
+        <div className="text-center">
+          <div className="mx-auto w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+            <Shield className="w-8 h-8 text-white" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            {mode === 'login' ? 'Welcome Back' : 'Create Your Vault'}
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-            Secure password management with client-side encryption
+          <p className="text-gray-600 dark:text-gray-400">
+            {mode === 'login' 
+              ? 'Sign in to access your secure password vault' 
+              : 'Start your journey to secure password management'
+            }
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm dark:bg-gray-800"
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+        {/* Main Form Card */}
+        <div className="bg-white dark:bg-gray-800 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-8">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="email-address" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email Address
+                </label>
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-base placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    id="password"
+                    name="password"
+                    type={showPassword ? 'text' : 'password'}
+                    autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+                    required
+                    className="w-full px-4 py-3 pr-12 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-base placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-5 w-5" />
+                    ) : (
+                      <Eye className="h-5 w-5" />
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type={showPassword ? 'text' : 'password'}
-                autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm dark:bg-gray-800"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                type="button"
-                className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <EyeOff className="h-4 w-4 text-gray-400" />
-                ) : (
-                  <Eye className="h-4 w-4 text-gray-400" />
-                )}
-              </button>
-            </div>
-          </div>
 
-          {error && (
-            <div className="rounded-md bg-red-50 dark:bg-red-900/50 p-4">
-              <div className="text-sm text-red-700 dark:text-red-300">{error}</div>
-            </div>
-          )}
+            {error && (
+              <div className="rounded-xl bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 p-4">
+                <div className="flex items-center space-x-2">
+                  <div className="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">!</span>
+                  </div>
+                  <p className="text-sm text-red-700 dark:text-red-300 font-medium">{error}</p>
+                </div>
+              </div>
+            )}
 
-          <div>
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
-              <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                {mode === 'login' ? (
-                  <LogIn className="h-4 w-4 text-blue-500 group-hover:text-blue-400" />
-                ) : (
-                  <UserPlus className="h-4 w-4 text-blue-500 group-hover:text-blue-400" />
-                )}
-              </span>
-              {isLoading ? 'Please wait...' : (mode === 'login' ? 'Sign in' : 'Create account')}
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <span>Processing...</span>
+                </>
+              ) : (
+                <>
+                  {mode === 'login' ? (
+                    <LogIn className="w-5 h-5" />
+                  ) : (
+                    <UserPlus className="w-5 h-5" />
+                  )}
+                  <span>{mode === 'login' ? 'Sign In' : 'Create Account'}</span>
+                </>
+              )}
             </button>
-          </div>
+          </form>
+        </div>
 
-          <div className="text-center">
-            <button
-              type="button"
-              className="text-blue-600 hover:text-blue-500 text-sm"
-              onClick={onToggleMode}
-            >
-              {mode === 'login' 
-                ? "Don't have an account? Sign up" 
-                : 'Already have an account? Sign in'}
-            </button>
-          </div>
-        </form>
+        {/* Toggle Mode */}
+        <div className="text-center">
+          <p className="text-gray-600 dark:text-gray-400 text-sm">
+            {mode === 'login' ? "Don't have an account?" : "Already have an account?"}
+          </p>
+          <button
+            type="button"
+            className="mt-1 text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 font-semibold text-sm transition-colors duration-200"
+            onClick={onToggleMode}
+          >
+            {mode === 'login' ? 'Sign up' : 'Sign in'}
+          </button>
+        </div>
       </div>
     </div>
   );
